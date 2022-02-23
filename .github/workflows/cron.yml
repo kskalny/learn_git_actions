@@ -1,0 +1,15 @@
+name: CRON test
+
+on:
+  schedule:
+    - cron: "0/5 * * * *"
+
+jobs:
+  fake_backup:
+    runs-on: ubuntu-latest
+    steps:
+      #Get the actual script version
+      - uses: actions/checkout@v2
+      
+      - name: Backup the README.md as log in console.
+        run: cat README.md
